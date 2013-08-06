@@ -1,0 +1,10 @@
+# routes.yml
+
+
+route2:
+    path:     /catcher/example
+    defaults: { _controller: 'DomCrawlerPageParser' }
+
+default_fallback:
+    path:     /catcher/{domain}
+    defaults: { _controller: 'MyController::fooAction' }
