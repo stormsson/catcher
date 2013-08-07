@@ -2,7 +2,6 @@
 
 namespace Stormsson\Catcher;
 
-
 class DomCrawlerPageParser extends BasePageParser
 {
   protected $_filters = array(
