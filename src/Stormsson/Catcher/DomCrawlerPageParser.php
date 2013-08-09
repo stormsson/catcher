@@ -1,18 +1,33 @@
 <?php
 
 namespace Stormsson\Catcher;
+use Symfony\Component\Yaml\Parser;
+use Symfony\Component\Yaml\Exception\ParseException;
 
 class DomCrawlerPageParser extends BasePageParser
 {
-  protected $_filters = array(
-    'lista' => '.list_submenu li a',
-    'titolo'=> 'h1.title_01'
-  );
-
   public static function createInstance()
   {
-    $instance = new self('http://symfony.com/doc/current/components/dom_crawler.html');
-    return $instance;
-  }
+    try {    
+        $yaml = new Parser();
+        $params = $yaml->parse(file_get_contents("config/parameters.yml")); 
+    } catch (ParseException $e) {
+        printf("Impossibile analizzare la stringa YAML: %s", $e->getMessage());
+    }
 
+    if(isset($params['filters'])) {
+      $filters = $params['filters'];
+    } 
+    
+    if(isset($params['url'])) {
+      $url = $params['url'];
+    }
+    
+    $instance = new self($url);
+    $instance->setFilters($filters);
+    
+    
+    return $instance;
+  }  
+  
 }

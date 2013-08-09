@@ -18,16 +18,15 @@ use Stormsson\Catcher\ParserNotFoundException;
 
 $project = new Project(__DIR__);
 $params = null;
+
 try
 {
   $params = $project->getRouter()->match($_SERVER['REQUEST_URI']);
-
 }
 catch (Symfony\Component\Routing\Exception\ResourceNotFoundException $e)
 {
   die("404");
 }
-//var_dump($params);
 
 $results = null;
 

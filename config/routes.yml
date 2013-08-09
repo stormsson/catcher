@@ -2,9 +2,9 @@
 
 
 route2:
-    path:     /catcher/example
+    path:     /catch
     defaults: { _controller: 'DomCrawlerPageParser' }
 
-default_fallback:
-    path:     /catcher/{domain}
-    defaults: { _controller: 'MyController::fooAction' }
+#default_fallback:
+#    path:     /{domain}
+#    defaults: { _controller: 'MyController::fooAction' }

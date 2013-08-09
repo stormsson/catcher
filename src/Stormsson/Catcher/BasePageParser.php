@@ -41,17 +41,31 @@ class BasePageParser implements \IteratorAggregate
   public function __construct($url,$method = "GET")
   {
     $this->_method = $method;
-    $this->_url = $url;
+    //$this->_url = $url;
     
     $this->_client = new Client();
     $this->_crawler = $this->_client->request($method,$url);
     
     
   }
-
+  public function setFilters($filters)
+  {
+    $this->_filters = $filters;
+  }
+  
   public function getFilters()
   {
     return $this->_filters;
+  }
+  
+  public function setUrl($url)
+  {
+    $this->_url = $url;
+  }  
+  
+  public function getUrl()
+  {
+    return $this->_url;
   }
 
   public function addFilter($name,$regexp)

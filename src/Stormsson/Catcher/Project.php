@@ -21,13 +21,16 @@ class Project
   {
     $this->_basedir = $basedir;
     $this->initRouting();
-
   }
 
+  protected function getLocator()
+  {
+      return new FileLocator(array($this->_basedir ."/config/"));
+  }
 
   protected function initRouting()
   {
-    $locator = new FileLocator(array($this->_basedir ."/config/"));
+    $locator = $this->getLocator();
     $requestContext = new RequestContext($_SERVER['REQUEST_URI']);
     
 
@@ -40,12 +43,12 @@ class Project
 
     //$this->_router->match('/catcher/bar');
   }
-
+  
   public function getRouter()
   {
     return $this->_router;
   }
-
+  
   public function dispatch($controller)
   {
     @$result = call_user_func(__NAMESPACE__.'\\'.$controller.'::createInstance');
