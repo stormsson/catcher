@@ -1,7 +1,10 @@
 <?php
-use Stormsson\Catcher\DomCrawlerParser;
+require_once 'vendor/autoload.php';
 
-$meh = new DomCrawlerParser('http://symfony.com/doc/current/components/dom_crawler.html');
+use Stormsson\Catcher\DomCrawlerPageParser;
+
+
+$meh = new DomCrawlerPageParser('http://symfony.com/doc/current/components/dom_crawler.html');
 
 
 $results = $meh->run()->getResults();

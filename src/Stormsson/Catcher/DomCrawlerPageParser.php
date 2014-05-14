@@ -1,5 +1,4 @@
 <?php
-
 namespace Stormsson\Catcher;
 
 class DomCrawlerPageParser extends BasePageParser
