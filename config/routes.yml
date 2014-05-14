@@ -5,6 +5,11 @@ route2:
     path:     /catcher/example
     defaults: { _controller: 'DomCrawlerPageParser' }
 
+gog:
+    path:     /catcher/gog
+    defaults: { _controller: 'GogPageParser' }
+
+
 default_fallback:
     path:     /catcher/{domain}
     defaults: { _controller: 'MyController::fooAction' }

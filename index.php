@@ -54,5 +54,3 @@ foreach ($results as $name => $nodes)
 //require_once('example.php');
 
 ?>
-
-ok
